@@ -8,7 +8,8 @@ import {
     TableRow, 
     TableCell, 
     Toolbar, 
-    InputAdornment 
+    InputAdornment, 
+    IconButton
 } from '@mui/material';
 import Popup from "../components/popup";
 import useTable from "../components/useTable";
@@ -31,7 +32,7 @@ const useStyles = makeStyles(theme => ({
     },
     searchInput: {
         width: '75%'
-    }
+    },
 }))
 
 const headCells = [
@@ -127,7 +128,7 @@ export default function Tasks() {
                         text="Add New"
                         variant="outlined"
                         startIcon={<Add />}
-                        className={classes.newButton}
+                        sx={{ zIndex: 'right' }}
                         onClick={() => { setOpenPopup(true); setRecordForEdit(null); }}
                     />
                 </Toolbar>
@@ -140,13 +141,15 @@ export default function Tasks() {
                                     <TableCell>{item.task}</TableCell>
                                     <TableCell>{item.tag}</TableCell>
                                     <TableCell>
-                                        <Controls.ActionButton
+                                        <IconButton
+                                            variant="contained"
                                             color="primary"
                                             onClick={() => { openInPopup(item) }}>
-                                            <EditOutlined fontSize="small" />
-                                        </Controls.ActionButton>
-                                        <Controls.ActionButton
-                                            color="secondary"
+                                            <EditOutlined fontSize="inherit" />
+                                        </IconButton>
+                                        <IconButton
+                                            sx={{bgcolor: 'background.paper'}}
+                                            color="error"
                                             onClick={() => {
                                                 setConfirmDialog({
                                                     isOpen: true,
@@ -155,8 +158,8 @@ export default function Tasks() {
                                                     onConfirm: () => { onDelete(item.id) }
                                                 })
                                             }}>
-                                            <Close fontSize="small" />
-                                        </Controls.ActionButton>
+                                            <Close fontSize="inherit" />
+                                        </IconButton>
                                     </TableCell>
                                 </TableRow>)
                             )
