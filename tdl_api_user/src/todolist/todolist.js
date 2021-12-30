@@ -1,3 +1,12 @@
+/*
+
+
+
+DEPRECATED
+
+
+
+*/
 import React, {Component} from "react"
 import TodoForm from "./todoform"
 import TodoItem from "./todoitem"
