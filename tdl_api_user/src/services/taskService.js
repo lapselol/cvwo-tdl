@@ -19,7 +19,7 @@ export function insertTask(data) {
 
 export function updateTask(data) {
     let tasks = getAllTasks();
-    let recordIndex = tasks.findIndex(x => x.id === data.id);
+    let recordIndex = tasks.filter(x => x.id === data.id);
     tasks[recordIndex] = { ...data }
     localStorage.setItem(KEYS.tasks, JSON.stringify(tasks));
 }
