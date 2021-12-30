@@ -1,18 +1,47 @@
 import React from 'react';
 import './App.css';
-import TodoList from './todolist/todolist.js'
-import Typography from "@mui/material/Typography";
+import { ThemeProvider, makeStyles } from '@mui/styles';
+import { createTheme, CssBaseline } from '@mui/material';
+import Tasks from './tasks/tasks'
+import Appbar from './components/appbar';
+import Sidebar from './components/sidebar';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#333996",
+      light: '#3c44b126'
+    },
+    secondary: {
+      main: "#f83245",
+      light: '#f8324526'
+    },
+    background: {
+      default: "#f4f5fd"
+    },
+  }
+})
+
+const useStyles = makeStyles({
+  appMain: {
+    paddingLeft: '320px',
+    width: '100%'
+  }
+})
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <Typography variant="h1">Todo</Typography>
-        <hr />
+  const classes = useStyles();
 
-        <TodoList />
-      </header>
-    </div>
+  return (
+    <ThemeProvider theme={theme}>
+      <Sidebar />
+      <div className={classes.appMain}>
+        <Appbar />
+
+        <Tasks />
+      </div>
+      <CssBaseline />
+    </ThemeProvider>
   );
 }
 
