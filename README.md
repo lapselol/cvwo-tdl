@@ -1,24 +1,17 @@
-# README
+To access frontend project directory, you can run:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### `cd ~/tdl/tdl_api_user`
 
-Things you may want to cover:
+In the project directory, you can run:
 
-* Ruby version
+### `npm start`
 
-* System dependencies
+Things to do:
 
-* Configuration
+-fix themes
+-need to allow user to add their own tags (currently hardcoded)
+-integrate rails backend API
 
-* Database creation
+Bugs:
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+-editing does not display current task
