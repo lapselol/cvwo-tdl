@@ -23,3 +23,4 @@ Backend API can be accessed via:
 
 ## cd ~/tdl 
 ## rails s
+### http://localhost:3000/api/v1/todos
