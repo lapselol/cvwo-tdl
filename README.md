@@ -18,3 +18,8 @@ Things to do:
 Bugs:
 
 -editing does not display current task
+
+Backend API can be accessed via:
+
+## cd ~/tdl 
+## rails s
