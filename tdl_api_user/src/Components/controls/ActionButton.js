@@ -8,18 +8,7 @@ const useStyles = makeStyles(theme => ({
         minWidth: 0,
         margin: theme.spacing(0.5)
     },
-    secondary: {
-        backgroundColor: theme.palette.secondary.light,
-        '& .MuiButton-label': {
-            color: theme.palette.secondary.main,
-        }
-    },
-    primary: {
-        backgroundColor: theme.palette.primary.light,
-        '& .MuiButton-label': {
-            color: theme.palette.primary.main,
-        }
-    },
+
 }))
 
 export default function ActionButton(props) {
@@ -30,6 +19,8 @@ export default function ActionButton(props) {
     return (
         <Button
             className={`${classes.root} ${classes[color]}`}
+            color={color}
+            variant="contained"
             onClick={onClick}>
             {children}
         </Button>

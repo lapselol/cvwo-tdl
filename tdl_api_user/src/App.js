@@ -2,9 +2,9 @@ import React from 'react';
 import './App.css';
 import { ThemeProvider, makeStyles } from '@mui/styles';
 import { createTheme, CssBaseline } from '@mui/material';
-import Tasks from './tasks/tasks'
-import Appbar from './components/appbar';
-import Sidebar from './components/sidebar';
+import Tasks from './Tasks/tasks'
+import Appbar from './Components/appbar';
+import Sidebar from './Components/sidebar';
 
 const theme = createTheme({
   palette: {

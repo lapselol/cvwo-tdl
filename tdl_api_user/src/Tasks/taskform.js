@@ -1,19 +1,19 @@
 import React , { useEffect } from 'react'
-import Controls from '../components/controls/Controls';
-import { useForm, Form } from '../components/useform';
+import Controls from '../Components/controls/Controls';
+import { useForm, Form } from '../Components/useForm';
 import { Grid } from '@mui/material';
-import * as taskService from "../services/taskService"
 
 
 const initialFValues = {
     id: 0,
     task: '',
-    tagId: '',
-    dueDate: new Date(),
+    tag: '',
+    deadline: new Date(),
+    completed: false
 }
 
 export default function TaskForm(props) {
-
+    
     const {addOrEdit, recordForEdit} = props
 
     const validate = (fieldValues = values) => {
@@ -29,11 +29,11 @@ export default function TaskForm(props) {
         if numbers needed in future
         if ('num' in fieldValues)
         temp.num = fieldValues.num.length > 99 ? "" : "Minimum 100 numbers required."
-        
-        tag not compulsory
-        if ('tagId' in fieldValues)
-            temp.tagId = fieldValues.tagId.length !== 0 ? "" : "This field is required."
         */
+
+        if ('tag' in fieldValues)
+            temp.tag = fieldValues.tag ? "" : "This field is required."
+        
         setErrors({
             ...temp
         })
@@ -55,7 +55,7 @@ export default function TaskForm(props) {
     const handleSubmit = e => {
         e.preventDefault()
         if (validate()){
-            console.log("ok")
+            //console.log("ok")
             addOrEdit(values, resetForm)
         }
     }
@@ -65,8 +65,9 @@ export default function TaskForm(props) {
             setValues({
                 ...recordForEdit
             })
-    }, [recordForEdit, setValues])
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [recordForEdit])
+    
     return (
         <Form onSubmit={handleSubmit}>
             <Grid container>
@@ -74,7 +75,7 @@ export default function TaskForm(props) {
                     <Controls.Input
                         name="task"
                         label="To Do"
-                        defaultValue={values.task}
+                        value={values.task}
                         onChange={handleInputChange}
                         error={errors.task}
                     />
@@ -82,19 +83,29 @@ export default function TaskForm(props) {
                 </Grid>
                 <Grid item xs={6}>
                     {
-                    <Controls.Select
-                        name="tagId"
+                    <Controls.Input
+                        name="tag"
                         label="Tag"
-                        value={values.tagId}
+                        value={values.tag}
+                        onChange={handleInputChange}
+                        error={errors.tag}
+                    />
+                    /*
+                    Dropdown Menu
+                    <Controls.Select
+                        name="tag"
+                        label="Tag"
+                        value={values.tag}
                         onChange={handleInputChange}
                         option={taskService.getTagCollection()}
                         error={errors.tagId}
                     />
+                    */
                     }
                     <Controls.DatePicker
-                        name="dueDate"
+                        name="deadline"
                         label="Due Date"
-                        value={values.dueDate}
+                        value={values.deadline}
                         onChange={handleInputChange}
                     />
 

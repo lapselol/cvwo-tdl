@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { 
     AppBar, 
     Toolbar, 
     Grid, 
     InputBase, 
     IconButton, 
-    Badge 
+    Badge, 
 } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { 
@@ -14,6 +14,8 @@ import {
     PowerSettingsNew, 
     Search 
 } from '@mui/icons-material';
+import { isOverdue } from '../Services/dateHandler';
+import { getAllTasks } from '../Services/taskService';
 
 
 const useStyles = makeStyles(theme => ({
@@ -33,23 +35,32 @@ const useStyles = makeStyles(theme => ({
 export default function Header() {
 
     const classes = useStyles();
+    const [count, setCount] = useState(0)
+
+    const countOverdue = () => {
+        let numOverdue = 0
+        getAllTasks().then(data => {
+        for(var task of data){
+            if(isOverdue(task.deadline)){
+                numOverdue += 1;
+            }
+        }
+        setCount(numOverdue)
+    })};
+    
+    useEffect(() => {
+        countOverdue()
+    }, [])
 
     return (
         <AppBar position="static" color="transparent">
             <Toolbar>
                 <Grid container
                     alignItems="center">
-                    <Grid item>
-                        <InputBase
-                            placeholder="Search topics"
-                            className={classes.searchInput}
-                            startAdornment={<Search fontSize="small" />}
-                        />
-                    </Grid>
                     <Grid item sm></Grid>
                     <Grid item>
                         <IconButton>
-                            <Badge badgeContent={4} color="error">
+                            <Badge badgeContent={count} color="error">
                                 <NotificationsNone fontSize="small" />
                             </Badge>
                         </IconButton>
