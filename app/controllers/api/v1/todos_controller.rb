@@ -1,3 +1,4 @@
+#Api::V1 scopes controller into API
 class Api::V1::TodosController < ApplicationController
   before_action :set_todo, only: [:show, :update, :destroy]
 
@@ -46,6 +47,6 @@ class Api::V1::TodosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def todo_params
-      params.require(:todo).permit(:task, :body)
+      params.require(:todo).permit(:task, :tag, :deadline, :completed)
     end
 end
