@@ -1,4 +1,4 @@
-const apiURL = 'http://localhost:3000/api/v1/todos'
+const apiURL = 'http://localhost:3001/api/v1/todos'
 
 export function getAllTasks(){
     return fetch(apiURL)

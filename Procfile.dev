@@ -1,2 +1,3 @@
-api: PORT=3000 bundle exec rails s
-web: PORT=3001 npm --prefix tdl_api_user run start
+
+web: PORT=3000 npm --prefix tdl_api_user run start
+api: PORT=3001 bundle exec rails s

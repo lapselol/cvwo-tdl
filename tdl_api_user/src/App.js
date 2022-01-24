@@ -13,7 +13,7 @@ export default function App() {
 
   const checkLoginStatus = () => {
     axios
-      .get("http://localhost:3000/logged_in", { withCredentials: true })
+      .get("http://localhost:3001/logged_in", { withCredentials: true })
       .then((response) => {
         if (response.data.logged_in && loginStatus === "NOT_LOGGED_IN") {
           setLoginStatus("LOGGED_IN");

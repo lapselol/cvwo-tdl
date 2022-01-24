@@ -48,7 +48,7 @@ export default function Registration(props) {
   const handleSubmit = (event) => {
     axios
       .post(
-        "http://localhost:3000/registrations",
+        "http://localhost:3001/registrations",
         {
           user: {
             email: values.email,

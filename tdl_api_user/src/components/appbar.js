@@ -38,7 +38,7 @@ export default function Appbar(props) {
   const handleLogoutClick = () => {
     console.log("Clicked Logout");
     axios
-      .delete("http://localhost:3000/logout", { withCredentials: true })
+      .delete("http://localhost:3001/logout", { withCredentials: true })
       .then((response) => {
         handleLogout();
       })
