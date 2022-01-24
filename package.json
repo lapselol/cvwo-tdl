@@ -3,11 +3,11 @@
   "license": "MIT",
   "engines": {
     "node": "10.15.3",
-    "yarn": "1.15.2"
+    "npm": "8.1.2"
   },
   "scripts": {
-    "build": "yarn --cwd tdl_api_user install && yarn --cwd tdl_api_user build",
+    "build": "npm --prefix tdl_api_user run install && npm --prefix tdl_api_user run build",
     "deploy": "cp -a tdl_api_user/build/. public/",
-    "heroku-postbuild": "yarn build && yarn deploy"
+    "heroku-postbuild": "npm build && npm deploy"
   }
 }
