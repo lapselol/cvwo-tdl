@@ -8,6 +8,6 @@
   "scripts": {
     "build": "npm --prefix tdl_api_user run install && npm --prefix tdl_api_user run build",
     "deploy": "cp -a tdl_api_user/build/. public/",
-    "heroku-postbuild": "npm build && npm deploy"
+    "heroku-postbuild": "npm run build && npm deploy"
   }
 }
