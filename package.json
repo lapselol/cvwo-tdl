@@ -3,10 +3,5 @@
   "license": "MIT",
   "engines": {
     "node": "16.13.1"
-  },
-  "scripts": {
-    "build": "npm --prefix tdl_api_user install && npm --prefix tdl_api_user run build",
-    "deploy": "cp -a tdl_api_user/build/. public.",
-    "heroku-postbuild": "npm run build && npm run deploy"
   }
 }
