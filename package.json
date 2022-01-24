@@ -6,7 +6,7 @@
     "npm": "8.1.2"
   },
   "scripts": {
-    "build": "npm --prefix tdl_api_user run install && npm --prefix tdl_api_user run build",
+    "build": "npm --prefix tdl_api_user run install --only=dev && npm --prefix tdl_api_user run install && npm --prefix tdl_api_user run build",
     "deploy": "cp -a tdl_api_user/build/. public/",
     "heroku-postbuild": "npm run build && npm deploy"
   }
