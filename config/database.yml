@@ -7,17 +7,17 @@ default: &default
 
 development:
   <<: *default
-  database: <tdl>_development
+  database: just_do_list_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: <tdl>_test
+  database: just_do_list_test
 
 production:
   <<: *default
-  database: <tdl>_production
+  database: just_do_list_production
   username: pixel_place
   password: <%= ENV['PIXEL_PLACE_DATABASE_PASSWORD'] %>
