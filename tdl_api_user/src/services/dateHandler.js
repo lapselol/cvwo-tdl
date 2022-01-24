@@ -1,7 +1,7 @@
 /**
  * 
- * @param {*} d1  
- * @returns {boolean} compares d1 and today, If d2 is overdue, returns true.
+ * @param {date object} d1 
+ * @returns {boolean} compares d and today
  */
 
 export function isOverdue(d){

@@ -11,7 +11,7 @@ import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles(theme => ({
     table: {
-        marginTop: theme.spacing(3),
+        marginTop: theme.spacing(1),
         '& thead th': {
             fontWeight: '600',
             color: theme.palette.primary.main,
@@ -27,11 +27,12 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-export default function useTable(records, headCells,filterFn) {
+export default function useTable(records, headCells, filterFn) {
+    console.log(records, "hello")
 
     const classes = useStyles();
 
-    const pages = [5, 10, 25]
+    const pages = [5, 9]
     const [page, setPage] = useState(0)
     const [rowsPerPage, setRowsPerPage] = useState(pages[page])
     const [order, setOrder] = useState()

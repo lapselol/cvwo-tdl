@@ -17,13 +17,11 @@ export default function DatePicker(props) {
             <KeyboardDatePicker 
                 disableToolbar variant="inline" 
                 inputVariant="outlined"
-                disablePast = "true"
-                minDateMessage = "Please choose a date in the future"
                 label={label}
                 format="yyyy/MM/dd"
                 name={name}
                 value={value}
-                onChange={date =>onChange(convertToDefEventPara(name,date))}
+                onChange={date => onChange(convertToDefEventPara(name,date))}
             />
         </MuiPickersUtilsProvider>
     )

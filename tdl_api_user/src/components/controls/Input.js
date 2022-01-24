@@ -3,7 +3,7 @@ import { TextField } from '@mui/material';
 
 export default function Input(props) {
 
-    const { id, name, label, value,error=null, onChange, ...other } = props;
+    const { id, name, label, value,error=null, onChange, endAdornment, ...other } = props;
     return (
         <TextField
             variant="outlined"

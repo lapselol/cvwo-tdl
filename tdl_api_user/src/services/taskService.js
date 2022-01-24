@@ -24,7 +24,6 @@ export function insertTask(Task){
 }
 
 export function updateTask(Task){
-    console.log(Task.deadline, "ye")
     return fetch(`${apiURL}/${Task.id}`, {
         method: "PUT",
         headers: {
