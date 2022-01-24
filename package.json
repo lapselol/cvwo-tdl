@@ -6,8 +6,8 @@
     "npm": "8.1.2"
   },
   "scripts": {
-    "build": "npm --prefix tdl_api_user run install --only=dev && npm --prefix tdl_api_user run install && npm --prefix tdl_api_user run build",
+    "build": "yarn --cwd tdl_api_user install && yarn --cwd tdl_api_user build",
     "deploy": "cp -a tdl_api_user/build/. public/",
-    "heroku-postbuild": "npm run build && npm deploy"
+    "heroku-postbuild": "yarn build && yarn deploy"
   }
 }
