@@ -5,7 +5,7 @@
     "node": "16.13.1"
   },
   "scripts": {
-    "build": "npm --prefix tdl_api_user run install && npm --prefix tdl_api_user run build",
+    "build": "npm --prefix tdl_api_user install && npm --prefix tdl_api_user run build",
     "deploy": "cp -a tdl_api_user/build/. public."
   }
 }
