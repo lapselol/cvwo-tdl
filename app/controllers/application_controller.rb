@@ -9,15 +9,17 @@ class ApplicationController < ActionController::API
       JWT.encode(payload, secret_key, 'HS256')
   end
 
-  def decoded_token
-      if auth_header
-          token = auth_header.split(' ')[1]
-          begin
-              JWT.decode(token, secret_key, true, algorithm: 'HS256')
-          rescue JWT::DecodeError
-              []
-          end
-      end
+  def decode(token)
+    JWT.decode(token, secret_key, true, {algorithm: 'HS256'})[0]
+  end
+
+  def token_authenticate
+      
+    token = request.headers["Authenticate"]
+    user = User.find(decode(token)["user_id"])
+
+    render json: user
+
   end
 
 
