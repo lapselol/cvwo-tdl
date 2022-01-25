@@ -8,10 +8,13 @@ class SessionsController < ApplicationController
 
     if user
       session[:user_id] = user.id
+      payload = {user_id: user.id}
+      token = encode_token(payload)
       render json: {
         status: :created,
         logged_in: true,
-        user: user
+        user: user,
+        jwt: token
       }
     else
       render json: { status: 401 }

@@ -8,9 +8,12 @@ class RegistrationsController < ApplicationController
 
     if user
       session[:user_id] = user.id
+      payload = {user_id: user.id}
+      token = encode_token(payload)
       render json: {
         status: :created,
-        user: user
+        user: user,
+        jwt: token
       }
     else
       render json: { status: 500 }
